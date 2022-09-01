@@ -1,0 +1,240 @@
+const lastId = () => {
+  let idList = [];
+  for (let i = 0; i < users.length; i++) {
+    idList.push(users[i].id);
+  }
+  for (let i = 0; i < idList.length; i++) {
+    for (let j = i + 1; j < idList.length; j++) {
+      if (idList[i] > idList[j]) {
+        let temp = idList[i];
+        idList[i] = idList[j];
+        idList[j] = temp;
+      }
+    }
+  }
+  return idList[idList.length - 1] + 1;
+};
+const addUserAtListEnd = () => {
+  let obj = {
+    id: lastId(),
+    name: "Andrei",
+    username: "userName",
+    age: 26,
+    gender: "F",
+    isOnline: true,
+  };
+  users.push(obj);
+};
+
+
+const addUserAtListEnd = (user) => {
+    users.sort((a, b) => a.id - b.id);
+    user.id = users[users.length - 1].id + 1;
+    users.push(user)
+};
+
+  const deleteFirstUser = () => {
+    users.shift();
+    console.log("deleteFirstUser",users);
+  };
+
+  const deleteLastUser = () => {
+    users.pop();
+    console.log(users);
+  };
+
+const usersClone = [...users];
+    const sortedByAge = usersClone.sort((a, b) => a.age - b.age);
+    sortedByAge.reverse();
+    console.log("Sort users by age: ", sortedByAge);
+
+
+const getUsersWithNumbersInUsername = () => {
+    const reg = /\d/;
+    const usersWithNumber = users.filter(user => {
+        if (reg.test(user.username))
+            return user;
+    });
+    console.log("Users with numbers in Username: ", usersWithNumber);
+};
+
+const checkIfAtLeastOneUserIsOnline = () => {
+
+    return users.some(a => a.isOnline);
+
+};
+
+
+console.log(checkIfAtLeastOneUserIsOnline());
+
+
+/**
+ * Check if all users are online
+ */
+
+const checkIfAllUsersAreOnline = () => {
+    return users.every( a => (a.isOnline));
+};
+
+console.log(checkIfAllUsersAreOnline())
+
+
+const getUsersWithNumbersInUsername = () => {
+    const re = new RegExp(/\d/);
+    console.log(users.filter(a => a.username.match(re)));
+};
+
+const updateUserAtPosition = (index) => {
+    users[index].age = 59;
+};
+
+const getUserById = (userId) => {
+  const result = users.find((user) => user.id === userId);
+  return result;
+};
+console.log(getUserById(15));
+
+
+const getUserById = (userId) => {
+    users.forEach((user)=>{
+        if(user.id===userId)
+            console.log(user);
+    })
+};
+
+const getMinAgeOfOnlineUsers = () => {
+    let minimum = 99;
+    users.forEach(user => {
+        if(user.isOnline === true && user.gender === "F" && user.age < minimum)
+            minimum = user.age;
+        });
+    console.log(minimum);
+  };
+
+  const setUserOnline = () => {
+
+users.forEach((user) => {
+
+user.isOnline = true;
+
+});
+
+};
+
+setUserOnline();
+
+console.log(users);
+
+
+
+const getOnlineUsersPercent = () => {
+let count = 0;
+users.forEach((user) => {
+if (user.isOnline === true) {
+count++;
+}
+});
+return (count * 100) / users.length;
+};
+
+getOnlineUsersPercent();
+
+console.log(getOnlineUsersPercent());
+
+
+/**
+ * Check if all users are online
+ */
+const checkIfAllUsersAreOnline = () => {
+  let onlineUsers = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].isOnline) {
+      onlineUsers++;
+    }
+  }
+
+  onlineUsers === users.length
+    ? console.log('All users are online! ðŸŸ©')
+    : console.log('Not all users are online! ðŸŸ¥');
+};
+
+checkIfAllUsersAreOnline();
+
+/**
+ * Change the isOnline status for each user to be true.
+ */
+const setUserOnline = () => {
+  for (let i = 0; i < users.length; i++) {
+    users[i].isOnline = true;
+  }
+
+  console.log(users);
+};
+setUserOnline();
+
+/**
+ * Get the percent of the online users
+ */
+const getOnlineUsersPercent = () => {
+  let onlineUsers = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].isOnline === true) {
+      onlineUsers++;
+    }
+  }
+
+  return (onlineUsers / users.length) * 100;
+};
+
+console.log(getOnlineUsersPercent());
+
+/**
+ * Get the number of the male users
+ */
+const getMaleUsersCount = () => {
+  let maleUserCount = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].gender === 'M') {
+      maleUserCount++;
+    }
+  }
+
+  return maleUserCount;
+};
+
+console.log(getMaleUsersCount());
+/**
+ * Get the maximum age of the online users
+ */
+const getMaxAgeOfOnlineUsers = () => {
+  let maxAge = users[0].age;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].isOnline === true && users[i].age > maxAge) {
+      maxAge = users[i].age;
+    }
+  }
+
+  return maxAge;
+};
+
+console.log(getMaxAgeOfOnlineUsers());
+
+/**
+ * Get the minimum age of the online female users
+ */
+const getMinAgeOfOnlineUsers = () => {
+  let minAge = users[0].age;
+  for (let i = 0; i < users.length; i++) {
+    if (
+      users[i].gender === 'F' &&
+      users[i].age < minAge &&
+      users[i].isOnline === true
+    ) {
+      minAge = users[i].age;
+    }
+  }
+
+  return minAge;
+};
+
+console.log(getMinAgeOfOnlineUsers());

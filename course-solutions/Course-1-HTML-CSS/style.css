@@ -1,0 +1,58 @@
+p {
+  color: blue;
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+#div2Id {
+  color: aqua;
+  border: 2px solid aqua;
+  border-top-left-radius: 20px;
+  border-radius: 2px 4px;
+}
+
+.div3Class {
+  color: brown;
+  background-color: bisque;
+  padding: 20px;
+}
+
+td {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+  margin-bottom: 4px;
+}
+
+#div1Square {
+  display: none;
+}
+
+#div2Square {
+  visibility: hidden;
+}
+
+.testPClass {
+  color: blue;
+}
+
+#testPId {
+  color: green;
+}
+
+p {
+  color: red;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,93 @@
+.container > div,
+.container-row > div {
+  background-color: beige;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-container > span {
+  color: blue;
+}
+
+.name-label + span {
+  font-weight: bold;
+}
+
+.hover-example {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.hover-example:hover {
+  background-color: grey;
+}
+
+label::after {
+  content: "*";
+  color: red;
+}
+
+.last-children-selector div:last-child {
+  color: blue;
+}
+
+.last-children-selector div:last-of-type {
+  color: red;
+}
+
+.static-position {
+  position: static;
+}
+
+.relative-position {
+  background-color: yellow;
+  position: relative;
+  left: 20px;
+}
+
+.absolute-position {
+  background-color: yellow;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.fixed-position {
+  position: fixed;
+  background-color: red;
+  bottom: 0;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.sticky-position {
+  background-color: blue;
+  color: white;
+  position: sticky;
+  top: 0px;
+}
+
+li::marker {
+  color: green;
+}
